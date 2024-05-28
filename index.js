@@ -36,11 +36,11 @@ app.get('/edit/:filename',function(req,res){
 });
 
 app.post('/edit',function(req,res){
-    
-
-    fs.writeFile(`./files/${req.body.title.split(' ').join('')}`, req.body.details, ()=>{
-        res.redirect("/")
-    })
+    const title = req.body.title;
+    // console.log(title);
+    fs.writeFile(`./files/${title}`, req.body.details, ()=>{
+            res.redirect("/")
+        })
 });
 
 app.listen(3000);
